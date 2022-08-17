@@ -30,13 +30,17 @@ function displaybookmarker() {
     <div class="list-group-item mb-4 bg-light shadow ">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 ">
-            <div class="pt-2">
+            <div class="pt-2" id="name${key}">
                 ${bookMarkElement.name}
+            </div>
+            <div class="pt-2 editinput" id="editinput${key}">
+                <input type="text" value=" ${bookMarkElement.name}" class="form-control"  id="editinputfield${key}">
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 ">
             <a class="btn btn-outline-info mt-1 btn-sm" href="${bookMarkElement.link}" target="_blank">Visit</a>
-            <button class="btn btn-outline-success mt-1 btn-sm" onclick=updateItem(${key})>Edit</button>
+            <button class="btn btn-outline-success mt-1 btn-sm" onclick=updateItem(${key}) id="editbtn${key}">Edit</button>
+            <button class="btn btn-outline-success mt-1 btn-sm updatebtn" onclick=saveupdateItem(${key}) id="updatebtn${key}">update</button>
             <button class="btn btn-outline-danger mt-1 btn-sm" onclick=deleteItem(${key})>Delete</button>
         </div>
     </div>
@@ -46,6 +50,13 @@ function displaybookmarker() {
   });
   if (bookMarkListArray !== null && bookMarkListArray.length) {
     document.getElementById("bookmarklist").innerHTML = bookMarkList;
+    Array.from(document.getElementsByClassName(`editinput`)).forEach((box) => {
+      box.style.display = "none";
+    });
+    Array.from(document.getElementsByClassName(`updatebtn`)).forEach((updatebox) => {
+        updatebox.style.display = "none";
+      });
+    
   } else {
     displaynobookmarker();
   }
@@ -115,5 +126,20 @@ function deleteItem(key) {
 
 // Update
 function updateItem(key) {
-
+    document.getElementById(`name${key}`).style.display = "none"
+    document.getElementById(`editinput${key}`).style.display = "inline-block"
+    document.getElementById(`editbtn${key}`).style.display = "none"
+    document.getElementById(`updatebtn${key}`).style.display = "inline-block"
 }
+
+// save updates 
+function saveupdateItem(key){
+    console.log(document.getElementById(`editinputfield${key}`).value)
+    bookMarkListArray[key].name = document.getElementById(`editinputfield${key}`).value
+    document.getElementById(`name${key}`).style.display = "inline-block"
+    document.getElementById(`editinput${key}`).style.display =  "none"
+    document.getElementById(`editbtn${key}`).style.display = "inline-block"
+    document.getElementById(`updatebtn${key}`).style.display = "none"
+    displaybookmarker()
+}
+
