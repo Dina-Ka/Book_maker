@@ -80,5 +80,6 @@ window.onload = function () {
     displaybookmarker();
   } else {
     displaynobookmarker();
+    bookMarkListArray = []
   }
 };
