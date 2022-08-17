@@ -114,4 +114,6 @@ function deleteItem(key) {
 }
 
 // Update
-function updateItem() {}
+function updateItem(key) {
+
+}
