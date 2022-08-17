@@ -9,6 +9,9 @@
     <!-- CSS -->
     <!-- Bootstrap 5  -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fotawsome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet">
     <style>
         .mainsection {
             background-image: url(img/avoid-multitasking-1000x642.jpg);
@@ -23,6 +26,27 @@
             padding: 30px;
             border-radius: 10px;
         }
+
+        .titles {
+            text-shadow: 0 0 2px #fff, 0 0 2px #fff;
+        }
+
+        .titles h1 {
+            font-size: 50px;
+        }
+
+        .searchinput {
+            border-radius: 20px;
+        }
+
+        .list-group-item+.list-group-item {
+            border-top-width: 1px;
+            border-radius: 10px;
+        }
+
+        .list-group-item {
+            border-radius: 10px !important;
+        }
     </style>
 </head>
 
@@ -36,13 +60,20 @@
                         <p class="text-white">Bookmark your favorite sites</p>
                     </div>
                     <div class="sitename form-group">
-                        <label class="text-white">Site Name</label>
+                        <label class="text-white">
+                            <b>
+                                Site Name
+                            </b>
+                        </label>
                         <input class="form-control" type="text" placeholder="Site Name">
 
                     </div>
 
                     <div class="sitelink mt-2 form-group">
-                        <label class="text-white">Site Link</label>
+                        <label class="text-white"><b>
+                                Site Link
+                            </b>
+                        </label>
                         <input class="form-control" type="text" placeholder="Site Link">
                     </div>
 
@@ -54,9 +85,80 @@
         </div>
     </section>
 
-    <div>
 
-    </div>
+    <section id="links">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <div class="w-75  my-5 ">
+                    <div class="searchsec">
+                        <input type="search" class="form-control searchinput" placeholder="&#xF002; &nbsp; Search"
+                            style="font-family:Arial, FontAwesome" />
+                    </div>
+
+                    <div class="bookmarked-history mt-5">
+                        <div class="card w-100">
+                            <div class="card-header">
+                                Featured
+                            </div>
+                            <div class="list-group p-3">
+                                <div class="list-group-item mb-4 bg-light">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-sm-12 ">
+                                            <div class="pt-2">
+                                                Your Saved Input data
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                            <button class="btn btn-outline-info mt-1 btn-sm">Visit</button>
+                                            <button class="btn btn-outline-success mt-1 btn-sm">Edit</button>
+                                            <button class="btn btn-outline-danger mt-1 btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item mb-4 bg-light">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-sm-12 ">
+                                            <div class="pt-2">
+                                                Your Saved Input data
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                            <button class="btn btn-outline-info mt-1 btn-sm">Visit</button>
+                                            <button class="btn btn-outline-success mt-1 btn-sm">Edit</button>
+                                            <button class="btn btn-outline-danger mt-1 btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item mb-4 bg-light">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-sm-12 ">
+                                            <div class="pt-2">
+                                                Your Saved Input data
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                            <button class="btn btn-outline-info mt-1 btn-sm">Visit</button>
+                                            <button class="btn btn-outline-success mt-1 btn-sm">Edit</button>
+                                            <button class="btn btn-outline-danger mt-1 btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+    <section class="footer">
+        <div class="text-center py-2">Developed & Designed by Dina</div>
+    </section>
     <script src="js/bootstrap.min.js"></script>
 </body>
 
