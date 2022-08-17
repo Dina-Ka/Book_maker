@@ -17,7 +17,10 @@
 }
 
 .titles h1 {
-    font-size: 50px;
+    font-size: 2rem;
+}
+.titles p {
+    font-size: 0.9rem;
 }
 
 .searchinput {
@@ -31,4 +34,7 @@
 
 .list-group-item {
     border-radius: 10px !important;
+}
+.nosaved{
+    font-size: 0.8rem
 }

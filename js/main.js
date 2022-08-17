@@ -67,7 +67,7 @@ function displaynobookmarker() {
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 ">
                 <div class="pt-2">
-                <i>
+                <i class="nosaved">
                 There is no saved items in the list
                 </i>
                 </div>
