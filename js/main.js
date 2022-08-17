@@ -19,15 +19,13 @@ saveBookMark.onclick = function () {
   displaybookmarker();
   clearinputs();
   console.log("1");
-
-  localStorage.setItem("bookmarker", JSON.stringify(bookMarkListArray));
 };
 
 // Display bookmarker
 function displaybookmarker() {
   bookMarkList = "";
   console.log("2");
-  bookMarkListArray.forEach((bookMarkElement) => {
+  bookMarkListArray.forEach((bookMarkElement, key) => {
     bookMarkList += `
     <div class="list-group-item mb-4 bg-light shadow ">
     <div class="row">
@@ -38,15 +36,20 @@ function displaybookmarker() {
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 ">
             <a class="btn btn-outline-info mt-1 btn-sm" href="${bookMarkElement.link}" target="_blank">Visit</a>
-            <button class="btn btn-outline-success mt-1 btn-sm">Edit</button>
-            <button class="btn btn-outline-danger mt-1 btn-sm">Delete</button>
+            <button class="btn btn-outline-success mt-1 btn-sm" onclick=updateItem(${key})>Edit</button>
+            <button class="btn btn-outline-danger mt-1 btn-sm" onclick=deleteItem(${key})>Delete</button>
         </div>
     </div>
 </div>
     
     `;
   });
-  document.getElementById("bookmarklist").innerHTML = bookMarkList;
+  if (bookMarkListArray !== null && bookMarkListArray.length) {
+    document.getElementById("bookmarklist").innerHTML = bookMarkList;
+  } else {
+    displaynobookmarker();
+  }
+  localStorage.setItem("bookmarker", JSON.stringify(bookMarkListArray));
 }
 function displaynobookmarker() {
   bookMarkList = "";
@@ -76,10 +79,39 @@ function clearinputs() {
 window.onload = function () {
   clearinputs();
   bookMarkListArray = JSON.parse(localStorage.getItem("bookmarker"));
-  if (bookMarkListArray !== null) {
+  checkerdisplay();
+};
+
+function checkerdisplay() {
+  if (bookMarkListArray !== null && bookMarkListArray.length) {
     displaybookmarker();
+    console.log("yes");
+    console.log(bookMarkListArray);
+    console.log(bookMarkListArray.length);
   } else {
     displaynobookmarker();
-    bookMarkListArray = []
+    console.log("no");
+    bookMarkListArray = [];
   }
-};
+}
+// Delete element
+function deleteItem(key) {
+  Swal.fire({
+    title: "Do you want to delete the selected item?",
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: "confirm",
+    denyButtonText: `Don't save`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      bookMarkListArray.splice(key, 1);
+      displaybookmarker();
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
+  });
+}
+
+// Update
+function updateItem() {}
