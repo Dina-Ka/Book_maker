@@ -18,13 +18,11 @@ saveBookMark.onclick = function () {
   bookMarkListArray.push(bookmarkJson);
   displaybookmarker();
   clearinputs();
-  console.log("1");
 };
 
 // Display bookmarker
 function displaybookmarker() {
   bookMarkList = "";
-  console.log("2");
   bookMarkListArray.forEach((bookMarkElement, key) => {
     bookMarkList += `
     <div class="list-group-item mb-4 bg-light shadow ">
@@ -97,12 +95,8 @@ window.onload = function () {
 function checkerdisplay() {
   if (bookMarkListArray !== null && bookMarkListArray.length) {
     displaybookmarker();
-    console.log("yes");
-    console.log(bookMarkListArray);
-    console.log(bookMarkListArray.length);
   } else {
     displaynobookmarker();
-    console.log("no");
     bookMarkListArray = [];
   }
 }
